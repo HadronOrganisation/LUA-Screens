@@ -13,8 +13,6 @@ local box_color_rgb = {255/r, 212/r, 122/r}            --
 local box_background_color_rgb = {255/r, 255/r, 255/r}
 local box_background_opacity = 0.25
 
-
-
 local font_size = 60
 local font = loadFont('Play-Bold', font_size)
 local v = font_size + 60
