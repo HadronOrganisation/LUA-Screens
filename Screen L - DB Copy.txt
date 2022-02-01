@@ -1,0 +1,204 @@
+local left_column_table = {
+    {"Eclipse"},
+    {"Eclipsy"},
+    {"Mantis - Gold"},
+    {"Turtle"},
+    {"Turtle - Space"},
+    {"- - -"},
+}
+local right_column_table = {
+    {"1. Link 'DB' to Board you wanna Copy"},
+    {"2. Link Empty 'DB' to Board"},
+    {"3. Activate Board"},
+    {"4. Follow the Instructions at LUA Chat"},
+}
+
+local enable_background_image = true
+local background_image = loadImage("assets.prod.novaquark.com/102348/3cf92ccf-e518-4456-9d90-f115b6324b0f.jpg")
+local r = 255
+local text_color_rgb = {255/r, 212/r, 122/r}
+local text2_color_rgb = {255/r, 0/r, 0/r}
+local box_color_rgb = {255/r, 212/r, 122/r}            --
+local box_background_color_rgb = {255/r, 255/r, 255/r}
+local box_background_opacity = 0.25
+
+local font_size = 50
+local font_size_small = 15
+local font = loadFont('Play-Bold', font_size)
+local font2 = loadFont('Play-Bold', font_size_small)
+local v = font_size + 0
+local u = font_size_small + 0
+local function splitByChunk(text, chunkSize)
+    
+    
+    local s = {}
+    local l = {}
+    local word_count = 0
+    
+    for i, line in ipairs(text) do
+        if line ~= "<br>" then
+            word_count = word_count + string.len(text[i])
+            l[#l+1] = text[i]
+        end
+        
+        
+        if word_count >= chunkSize or line == "<br>" then
+            
+            s[#s+1] = table.concat(l," ")
+            l = {}
+            word_count = 0
+        end
+    end
+
+    return s
+end
+
+function Split(s, delimiter)
+    result = {}
+    for word in string.gmatch(s, "[^%s]+") do
+        table.insert(result, word)
+        
+    end
+    return result;
+end
+local rx, ry = getResolution()
+local l = createLayer()
+local l2 = createLayer()
+if enable_background_image == true then
+    addImage(l, background_image, 0, 0, rx, ry)
+end
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBoxRounded(l2, rx/2 -360, 20, (rx/2 -110), 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBoxRounded(l2, rx/2 -360, 110, (rx/2 -110), 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBoxRounded(l2, rx/2 -360, 200, (rx/2 -110), 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBoxRounded(l2, rx/2 -360, 290, (rx/2 -110), 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBoxRounded(l2, rx/2 -360, 380, (rx/2 -110), 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBoxRounded(l2, rx/2 -360, 470, (rx/2 -110), 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, rx/2 +95, 20, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, rx/2 +95, 110, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, rx/2 +95, 200, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, rx/2 +95, 290, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, rx/2 +95, 380, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, rx/2 +95, 470, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, rx/2 +415, 470, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+addLine(l2, rx/2 +165, 50, rx/2 +200, 50)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+addLine(l2, rx/2 +165, 140, rx/2 +200, 140)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+addLine(l2, rx/2 +165, 230, rx/2 +200, 230)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+addLine(l2, rx/2 +165, 320, rx/2 +200, 320)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+addLine(l2, rx/2 +165, 410, rx/2 +200, 410)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+addLine(l2, rx/2 +165, 500, rx/2 +200, 500)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+addLine(l2, rx/2 +200, 50, rx/2 +200, 500)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+addLine(l2, rx/2 +200, 275, rx/2 +240, 275)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, rx/2 +245, 120, 120, 340)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+addLine(l2, rx/2 +370, 275, rx/2 +445, 275)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+addLine(l2, rx/2 +445, 275, rx/2 +445, 465)
+
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, 30, 20, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, 30, 110, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, 30, 200, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, 30, 290, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, 30, 380, 65, 60)
+setNextStrokeColor(l2, box_color_rgb[1], box_color_rgb[2], box_color_rgb[3], 1)
+setNextStrokeWidth(l2, 4)
+setNextFillColor(l2, box_background_color_rgb[1], box_background_color_rgb[2], box_background_color_rgb[3], box_background_opacity)
+addBox(l2, 30, 470, 65, 60)
+
+
+local left_column_layout = "table"
+local right_column_layout = "table"
+
+if left_column_layout == "table" then
+    for i, line in ipairs(left_column_table) do
+        setNextFillColor(l2, text_color_rgb[1], text_color_rgb[2], text_color_rgb[3], 1)
+        setNextTextAlign(l2, AlignH_Center, AlignV_Middle)
+        addText(l2, font, line[1], rx/2 -160, v)
+        
+        v = v + font_size + 40
+    end
+end
+
+if right_column_layout == "table" then
+    for i, line in ipairs(right_column_table) do
+        setNextFillColor(l2, text2_color_rgb[1], text2_color_rgb[2], text2_color_rgb[3], 1)
+        setNextTextAlign(l2, AlignH_Left, AlignV_Middle)
+        addText(l2, font2, line[1], rx/2 +225, u)
+        
+        u = u + font_size_small + 15
+    end
+end
